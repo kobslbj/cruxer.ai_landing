@@ -26,7 +26,7 @@ export async function getWaitlistCount(): Promise<number> {
   }
 }
 
-export async function addToWaitlist(prevState: any, formData: FormData): Promise<ActionResult> {
+export async function addToWaitlist(_prevState: ActionResult | null, formData: FormData): Promise<ActionResult> {
   const email = formData.get("email") as string;
 
   if (!email) {

@@ -5,29 +5,25 @@ import { useFormStatus } from "react-dom";
 import { CTASectionProps } from "@/lib/types";
 import { addToWaitlist } from "@/app/actions/waitlist";
 import { toast } from "sonner";
+import { Input } from "@/components/ui/input";
+import { ShinyButton } from "@/components/magicui/shiny-button";
+import { Loader2 } from "lucide-react";
 
 function SubmitButton({ children }: { children: React.ReactNode }) {
   const { pending } = useFormStatus();
   
   return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="group relative w-full overflow-hidden rounded-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-800 px-6 py-3 text-base font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:shadow-blue-500/25 focus:outline-none focus:ring-2 focus:ring-blue-500/40 disabled:opacity-50 disabled:cursor-not-allowed"
+    <ShinyButton
     >
-      <span className="relative z-10">
-        {pending ? (
-          <div className="flex items-center justify-center gap-2">
-            <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
-            Processing...
-          </div>
-        ) : (
-          children
-        )}
-      </span>
-      
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-700 via-blue-800 to-indigo-900 opacity-0 transition-opacity group-hover:opacity-100" />
-    </button>
+      {pending ? (
+        <span className="flex items-center justify-center gap-2">
+          <Loader2 className="h-5 w-5 animate-spin" />
+          Processing...
+        </span>
+      ) : (
+        children
+      )}
+    </ShinyButton>
   );
 }
 
@@ -40,35 +36,33 @@ export default function CTASection({
 
   useEffect(() => {
     if (state?.success) {
-      toast.success("🎉 Welcome to the Founding Members!", {
-        description: "We'll notify you as soon as early access is available.",
-      });
+      toast.success(state.message);
     } else if (state && !state.success) {
       toast.error(state.message);
     }
   }, [state]);
 
   return (
-    <section className="relative flex flex-col items-center justify-end px-6 pb-16">
-      <div className="mx-auto max-w-xl space-y-4 text-center">
-        <div className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 dark:bg-blue-950/30 dark:text-blue-300">
-          Early Access Opportunity
-        </div>
-        
-        <form action={formAction} className="space-y-3">
-          <input
-            type="email"
-            name="email"
-            placeholder={emailPlaceholder}
-            required
-            className="w-full rounded-full border border-border bg-background px-6 py-3 text-base placeholder:text-muted-foreground focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
-          />
-          
-          <SubmitButton>{buttonText}</SubmitButton>
+    <section className="relative flex flex-col items-center justify-start px-6 pb-12">
+      <div className="mx-auto max-w-2xl space-y-4 text-center">
+        <form action={formAction} className="w-full max-w-lg mx-auto">
+          <div className="flex flex-col items-stretch gap-4">
+            <Input
+              type="email"
+              name="email"
+              placeholder={emailPlaceholder}
+              required
+              className="h-14 text-base bg-white/95 border-zinc-300 text-zinc-900 placeholder:text-zinc-500 focus-visible:ring-zinc-400/30 focus-visible:border-zinc-400 backdrop-blur-md shadow-lg"
+            />
+            
+            <SubmitButton>
+              {buttonText}
+            </SubmitButton>
+          </div>
         </form>
         
         {socialProofText && (
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground mt-3">
             <span className="font-medium text-foreground">{socialProofText}</span>
           </p>
         )}

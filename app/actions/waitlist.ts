@@ -44,6 +44,7 @@ export async function addToWaitlist(_prevState: ActionResult | null, formData: F
   }
 
   try {
+    // Always insert new email (allow duplicates)
     const { data, error } = await supabase
       .from("waiting_list")
       .insert({ email: email.toLowerCase().trim() })
@@ -51,13 +52,6 @@ export async function addToWaitlist(_prevState: ActionResult | null, formData: F
       .single();
 
     if (error) {
-      if (error.code === '23505') { // unique constraint violation
-        return {
-          success: false,
-          message: "This email is already registered!"
-        };
-      }
-      
       console.error("Supabase error:", error);
       return {
         success: false,
@@ -67,7 +61,7 @@ export async function addToWaitlist(_prevState: ActionResult | null, formData: F
 
     return {
       success: true,
-      message: "Successfully joined the waiting list!",
+      message: "🎉 Welcome to the Founding Members! We'll notify you as soon as early access is available.",
       data
     };
 

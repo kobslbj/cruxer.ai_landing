@@ -10,13 +10,13 @@ export default async function Home() {
     : "";
   
   const heroContent = {
-    headline: "Hire an AI Product Consultant, and forge a clear path to Product-Market Fit.",
-    description: "Cruxer.ai is the AI product consultant built for founders. It gets to the crux of the problem, transforming your scattered ideas, notes, and even conversations into a validated, developer-ready action blueprint."
+    headline: "Build with confidence, with Cruxer.",
+    description: "Hire the AI Product Team that keeps your vision on track. From chaotic idea to validated blueprint, we're with you at every step."
   };
 
   const ctaContent = {
     emailPlaceholder: "Enter your email",
-    buttonText: "Apply to be a Founding Member & Get Early Access",
+    buttonText: "Join the Waitlist, Hire Your AI Product Team",
     socialProofText
   };
 

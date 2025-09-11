@@ -14,20 +14,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cruxer.ai - AI Product Consultant for Founders",
-  description: "Don't let a great idea die from a chaotic start. Cruxer.ai transforms your scattered ideas into validated, developer-ready action blueprints.",
+  title: "Cruxer.ai | Your AI Product Team",
+  description: "Cruxer.ai is the AI Product Team for founders. We turn chaotic ideas into validated, developer-ready blueprints. Build with confidence.",
   keywords: ["AI", "product consultant", "startup", "founder", "product development", "validation"],
   authors: [{ name: "Cruxer.ai" }],
   openGraph: {
-    title: "Cruxer.ai - AI Product Consultant for Founders",
-    description: "Transform scattered ideas into validated action blueprints with AI-powered product consulting.",
+    title: "Cruxer.ai | Your AI Product Team",
+    description: "Cruxer.ai is the AI Product Team for founders. We turn chaotic ideas into validated, developer-ready blueprints. Build with confidence.",
     type: "website",
     locale: "en_US",
     alternateLocale: "zh_TW",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cruxer.ai - AI Product Consultant for Founders",
+    title: "Cruxer.ai | Your AI Product Team",
     description: "Don't let great ideas die from chaotic starts. Get your action blueprint today.",
   },
 };

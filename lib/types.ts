@@ -26,6 +26,8 @@ export type ActionResult = {
   success: boolean;
   message: string;
   data?: WaitingListEntry;
+  title?: string;
+  description?: string;
 }
 
 export interface TeamMember {

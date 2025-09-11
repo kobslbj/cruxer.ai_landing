@@ -27,3 +27,17 @@ export type ActionResult = {
   message: string;
   data?: WaitingListEntry;
 }
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  description: string;
+  personality: string;
+  color: string;
+  imageSrc?: string;
+}
+
+export interface TeamSectionProps {
+  members: TeamMember[];
+}

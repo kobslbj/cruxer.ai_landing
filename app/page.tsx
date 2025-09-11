@@ -23,7 +23,7 @@ export default async function Home() {
   return (
     <div className="h-screen flex flex-col">
       <Navbar />
-      <main className="flex-1 flex flex-col">
+      <main className="flex-1 flex flex-col items-center justify-center gap-8">
         <HeroSection {...heroContent} />
         <CTASection {...ctaContent} />
       </main>

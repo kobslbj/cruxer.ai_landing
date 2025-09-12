@@ -8,8 +8,9 @@ import Image from "next/image";
 import { addToWaitlist } from "@/app/actions/waitlist";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
+import { Loader2, Sparkles } from "lucide-react";
 import { toast } from "sonner";
+import { Brain } from 'lucide-react';
 
 function SubmitButton({ children }: { children: React.ReactNode }) {
   const { pending } = useFormStatus();
@@ -108,7 +109,7 @@ export default function TeamSection({ members }: TeamSectionProps) {
           <div className="mx-auto w-fit mb-6">
             <div className="group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800">
               <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                <span>🧠 Meet Razor</span>
+                <span className="flex items-center"><Brain className="w-4 h-4 mr-2" /> Meet Your #1 AI Product Team</span>
               </AnimatedShinyText>
             </div>
           </div>
@@ -261,6 +262,54 @@ export default function TeamSection({ members }: TeamSectionProps) {
                 </form>
               ))}
             </div>
+          </div>
+        </div>
+      </div>
+      {/* Secondary members under Razor: SPARK & PULSE */}
+      <div className="mt-12 mx-auto max-w-6xl">
+        <div className="mx-auto w-fit mb-6">
+          <div className="rounded-full border border-black/5 bg-neutral-100 text-base text-white dark:border-white/5 dark:bg-neutral-900">
+            <span className="inline-flex items-center justify-center px-4 py-1 text-sm text-neutral-600 dark:text-neutral-400">
+              <Sparkles className="w-4 h-4 mr-1 text-yellow-500 dark:text-yellow-400" />
+              Core Team
+            </span>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch justify-items-center">
+          {/* SPARK */}
+          <div className="group relative overflow-hidden rounded-2xl border bg-card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 max-w-md w-full">
+            <div className="flex flex-col items-center text-center space-y-4">
+              <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg ring-2 ring-background">
+                <Image src="/spark.png" alt="SPARK" width={96} height={96} className="object-cover w-full h-full" />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-semibold text-foreground">SPARK</h3>
+                <p className="text-sm font-medium text-primary">Your AI Architect</p>
+              </div>
+              
+              <div className="pt-2 border-t border-border/50 w-full">
+                <p className="text-xs text-muted-foreground/80 italic">“My job is to turn your validated vision into a flawless blueprint.”</p>
+              </div>
+            </div>
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl" style={{ backgroundColor: '#f59e0b' }} />
+          </div>
+
+          {/* PULSE */}
+          <div className="group relative overflow-hidden rounded-2xl border bg-card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 max-w-md w-full">
+            <div className="flex flex-col items-center text-center space-y-4">
+              <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg ring-2 ring-background">
+                <Image src="/pulse.png" alt="PULSE" width={96} height={96} className="object-cover w-full h-full" />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-semibold text-foreground">PULSE</h3>
+                <p className="text-sm font-medium text-primary">Your AI Research Analyst</p>
+              </div>
+              
+              <div className="pt-2 border-t border-border/50 w-full">
+                <p className="text-xs text-muted-foreground/80 italic">“I find the truth in the noise.”</p>
+              </div>
+            </div>
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl" style={{ backgroundColor: '#22c55e' }} />
           </div>
         </div>
       </div>

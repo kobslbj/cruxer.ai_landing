@@ -2,6 +2,7 @@ import Navbar from "@/components/navbar";
 import HeroSection from "@/components/hero-section";
 import TeamSection from "@/components/team-section";
 import { TeamMember } from "@/lib/types";
+import CTASection from "@/components/cta-section";
 
 export default async function Home() {
   const heroContent = {
@@ -26,6 +27,13 @@ export default async function Home() {
       <Navbar />
       <main className="flex-1 flex flex-col items-center gap-6">
         <HeroSection {...heroContent} />
+        <div id="waitlist" className="w-full">
+          <CTASection 
+            emailPlaceholder="Your email"
+            buttonText="Join"
+            socialProofText=""
+          />
+        </div>
         <TeamSection members={teamMembers} />
       </main>
     </div>
